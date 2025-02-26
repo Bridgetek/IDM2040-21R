@@ -1,4 +1,4 @@
-# IDM2040-21R-Dev
+# IDM2040-21R
 The application development support for Bridgetek IDM2040-21R platform
 
 IDM2040-21R is a 2.1-inch Rotary Dial Display, powered by Raspberry Pi RP2040 microcontroller with FT800Q and integrated with a rotary encoder with button, RS-485 transceiver and a 2.1-inch round LCD. 
