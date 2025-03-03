@@ -1,6 +1,8 @@
 # Introduction
 
-The IDM2040-21R is our product featuring the RPi2040 and FT800Q, equipped with a 480x480 round display with capacitive touch. By default, the FT800Q only supports resistive touch. However, it can enable capacitive touch functionality by loading a specialized touch firmware into RAM_CMD after reboot.
+The IDM2040-21R is our product featuring the RPi2040 and FT800Q, equipped with a 480x480 round display with capacitive touch. By default, the FT800Q only supports resistive touch. 
+
+However, it can enable capacitive touch functionality by loading a specialized touch firmware (`touch.load.bin`)  into RAM_CMD after reboot.
 
 # Usage
 
