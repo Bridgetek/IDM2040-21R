@@ -11,7 +11,7 @@ IDM2040-21R is a 2.1-inch Rotary Dial Display, powered by Raspberry Pi RP2040 mi
 
 Here are the folder structure :  
 
-* Docs : documentation  
+* Docs : documentation, including the datasheet of the IDM2040-21R module. 
 
 
 ## IDE support for GUI application development  
