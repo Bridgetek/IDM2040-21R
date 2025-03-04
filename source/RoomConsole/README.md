@@ -33,6 +33,6 @@ nmake
 4. .uf file will be generated in build folder
 
 ### Program board
-1. While holding the ~BOOTSEL~ button(SW1), connect the board to computer via the USB cable, or alternatively, press the ~RESET~ button(SW2) while holding the ~BOOTSEL~ button(SW1), then release the ~RESET~ button(SW2).
-2. Release the ~BOOTSEL~ button(SW1). the board will enter bootloader modeand appear as a removable storage device (RPI-RP2) on computer.
+1. While holding the **BOOTSEL** button(SW1), connect the board to computer via the USB cable, or alternatively, press the **RESET** button(SW2) while holding the **BOOTSEL** button(SW1), then release the **RESET** button(SW2).
+2. Release the **BOOTSEL** button(SW1). the board will enter bootloader modeand appear as a removable storage device (RPI-RP2) on computer.
 3. Simply drag and drop the generated .uf2 firmware file onto the RPI-RP2 storage device.
