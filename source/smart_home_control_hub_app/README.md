@@ -4,7 +4,7 @@ RoomConsole is a software package created by EVE Screen Designer (ESD), specific
 
 # Folder introduction
 ```
-📂 RoomConsole
+📂 smart_home_control_hub_app
     ├───Esd_Core                       | The application core files
     ├───FT_Esd_Framework               | The application framework files
     ├───FT_Esd_Widgets                 | The widget files
