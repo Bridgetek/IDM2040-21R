@@ -1,6 +1,6 @@
 # Overview
 
-RoomConsole is a software package created by EVE Screen Designer (ESD), specifically designed for the IDM2040-21R platform.
+**Smart home control hub app** is a software package created by EVE Screen Designer (ESD), specifically designed for the IDM2040-21R platform.
 
 # Folder introduction
 ```
@@ -24,13 +24,13 @@ RoomConsole is a software package created by EVE Screen Designer (ESD), specific
 ```sh
 set PICO_SDK_PATH=[path to pico-sdk]
 set PICO_TOOLCHAIN_PATH=[path to GNU Arm Embedded Toolchain\10 2020-q4-major\bin]
-cd RoomConsole
+cd smart_home_control_hub_app
 mkdir build
 cd build
 [path to cmake] -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug ..
 nmake
 ```
-4. .uf file will be generated in build folder
+4. SmartHomeControlHub.uf file will be generated in build folder
 
 ### Program board
 1. While holding the **BOOTSEL** button(SW1), connect the board to computer via the USB cable, or alternatively, press the **RESET** button(SW2) while holding the **BOOTSEL** button(SW1), then release the **RESET** button(SW2).
