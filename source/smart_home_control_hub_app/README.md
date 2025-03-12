@@ -30,7 +30,7 @@ cd build
 [path to cmake] -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug ..
 nmake
 ```
-4. SmartHomeControlHub.uf file will be generated in build folder
+4. SmartHomeControlHub.uf2 file will be generated in build folder
 
 ### Program board
 1. While holding the **BOOTSEL** button(SW1), connect the board to computer via the USB cable, or alternatively, press the **RESET** button(SW2) while holding the **BOOTSEL** button(SW1), then release the **RESET** button(SW2).
