@@ -25,5 +25,12 @@ The default firmware is built from an example project within ESD.
 
 ![image](https://github.com/user-attachments/assets/38e76883-d6db-4a34-840f-559dd25d96d8)
 
+You may check this tutorial on the details of this ESD project. 
+
+https://bridgetek.github.io/tutorials/esd_idm2040_21r/
+
+
+
+
 We strongly encourage developers to leverage ESD for efficient GUI application development.
 
