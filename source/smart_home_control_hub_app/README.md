@@ -50,15 +50,15 @@ The button is connected as a GPIO in the hardware design, with a rising edge det
 The hardware includes a rotary encoder, which provides an alternative method for turning pages or adjusting settings like light brightness and air conditioning temperature, instead of using the touchscreen.
 
 The encoder operates with two GPIOs, allowing us to determine the direction of rotation based on the signal pattern. When the encoder turns right, GPIO_A goes low before GPIO_B, and the status (B's level << 1 | A's level) follows the sequence 3 → 2 → 0. A turn is detected when both GPIOs go low. Conversely, when the encoder turns left, GPIO_B goes low before GPIO_A, and the status follows the sequence 3 → 1 → 0.
-
-A___        _______
-    |______|       |______
-B_______         ______
+```
+A___        _______       
+    |______|       |______ 
+B_______         ______   
         |_______|      |__
   3   2  [0]  1  3   2  [0]  (B<<1|A)
 [0] is the positions where rotary switch detects
 ==> right, count up
 <== left, count down
-
+```
 
 A counter parameter, 'encoder', is introduced similarly to the 'button'. In the ESD loop, the encoder status is read by comparing the current 'encoder' value with the previous cycle’s value to determine if a turn has occurred.
