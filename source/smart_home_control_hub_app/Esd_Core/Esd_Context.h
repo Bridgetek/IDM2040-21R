@@ -129,6 +129,8 @@ typedef struct
 	Esd_Callback End;
 	void *UserContext;
 
+	bool HW_updated;
+
 } Esd_Context;
 
 

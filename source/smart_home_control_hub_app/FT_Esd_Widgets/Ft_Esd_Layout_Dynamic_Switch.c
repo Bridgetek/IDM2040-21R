@@ -59,6 +59,7 @@ void Ft_Esd_Layout_Dynamic_Switch_Update(Ft_Esd_Layout_Dynamic_Switch *context)
 						next = child;
 						context->Next = child;
 						context->Widget.Recalculate = 1;
+						Esd_CurrentContext->HW_updated = true;
 						context->animationmode = FT_TRUE;
 						context->firsthalf = FT_TRUE;
 						context->secondhalf = FT_FALSE;
@@ -78,6 +79,7 @@ void Ft_Esd_Layout_Dynamic_Switch_Update(Ft_Esd_Layout_Dynamic_Switch *context)
 		if (context->animationmode && context->firsthalf)
 		{
 			context->Widget.Recalculate = 1;
+			Esd_CurrentContext->HW_updated = true;
 			context->elapsedtime += Ft_Esd_GetDeltaMs();
 
 			uint32_t time;
@@ -101,6 +103,7 @@ void Ft_Esd_Layout_Dynamic_Switch_Update(Ft_Esd_Layout_Dynamic_Switch *context)
 		else if (context->animationmode && context->secondhalf)
 		{
 			context->Widget.Recalculate = 1;
+			Esd_CurrentContext->HW_updated = true;
 			context->elapsedtime += Ft_Esd_GetDeltaMs();
 
 			uint32_t time;

@@ -27,6 +27,7 @@ void Ft_Esd_Widget_LocalInsertAbove(Ft_Esd_Widget *context, Ft_Esd_Widget *sibli
 	if (parent->First == sibling)
 		parent->First = context;
 	parent->Recalculate = 1;
+	Esd_CurrentContext->HW_updated = true;
 	if (!activeBefore && Ft_Esd_Widget_GetActive(context))
 		context->Slots->Enable(context);
 }
@@ -54,6 +55,7 @@ void Ft_Esd_Widget_LocalInsertBelow(Ft_Esd_Widget *context, Ft_Esd_Widget *sibli
 	if (parent->Last == sibling)
 		parent->Last = context;
 	parent->Recalculate = 1;
+	Esd_CurrentContext->HW_updated = true;
 	if (!activeBefore && Ft_Esd_Widget_GetActive(context))
 		context->Slots->Enable(context);
 }

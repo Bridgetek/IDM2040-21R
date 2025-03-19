@@ -237,12 +237,16 @@ void Ft_Esd_Widget_End(struct Ft_Esd_Widget *context)
 void Ft_Esd_Widget_PostLocalRect(Ft_Esd_Widget *context)
 {
 	if (context->Parent)
+	{
 		context->Parent->Recalculate = 1;
+		Esd_CurrentContext->HW_updated = true;
+	}
 }
 
 void Ft_Esd_Widget_PostGlobalRect(Ft_Esd_Widget *context)
 {
 	context->Recalculate = 1;
+	Esd_CurrentContext->HW_updated = true;
 }
 
 void Ft_Esd_Widget_Detach_Internal(Ft_Esd_Widget *context)
@@ -263,6 +267,7 @@ void Ft_Esd_Widget_Detach_Internal(Ft_Esd_Widget *context)
 	context->Next = 0;
 	context->GlobalValid = FT_FALSE;
 	parent->Recalculate = FT_TRUE;
+	Esd_CurrentContext->HW_updated = true;
 }
 
 void Ft_Esd_Widget_Detach(Ft_Esd_Widget *context)
@@ -296,6 +301,7 @@ void Ft_Esd_Widget_LocalInsertTop(Ft_Esd_Widget *context, Ft_Esd_Widget *parent)
 	if (!parent->Last)
 		parent->Last = context;
 	parent->Recalculate = 1;
+	Esd_CurrentContext->HW_updated = true;
 	if (!activeBefore && Ft_Esd_Widget_GetActive(context))
 		context->Slots->Enable(context);
 }
@@ -323,6 +329,7 @@ void Ft_Esd_Widget_LocalInsertBottom(Ft_Esd_Widget *context, Ft_Esd_Widget *pare
 	if (!parent->First)
 		parent->First = context;
 	parent->Recalculate = 1;
+	Esd_CurrentContext->HW_updated = true;
 	if (!activeBefore && Ft_Esd_Widget_GetActive(context))
 		context->Slots->Enable(context);
 }
@@ -360,7 +367,10 @@ void Ft_Esd_Widget_SetActive(Ft_Esd_Widget *context, ft_bool_t active)
 				context->Slots->Disable(context);
 		}
 		if (context->Parent)
+		{
 			context->Parent->Recalculate = FT_TRUE;
+			Esd_CurrentContext->HW_updated = true;
+		}
 		context->GlobalValid = FT_FALSE;
 	}
 }

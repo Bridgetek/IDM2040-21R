@@ -36,6 +36,7 @@ void Ft_Esd_Layout_Linear_Update(Ft_Esd_Layout_Linear *context)
 	{
 		context->LastValues = context->Values;
 		context->Widget.Recalculate = FT_TRUE;
+		Esd_CurrentContext->HW_updated = true;
 	}
 	bool recalculate = context->Widget.Recalculate;
 	if (recalculate)

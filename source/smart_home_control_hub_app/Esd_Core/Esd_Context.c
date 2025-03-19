@@ -301,18 +301,23 @@ ESD_CORE_EXPORT void Esd_Update(Esd_Context *ec)
 
 	// Update GUI state before render
 	ec->LoopState = ESD_LOOPSTATE_UPDATE;
-	ms = EVE_millis(); // Calculate frame time delta
-	ec->DeltaMs = ms - ec->Millis;
-	ec->Millis = ms;
-	Esd_GpuAlloc_Update(Esd_GAlloc); // Run GC
-	Esd_TouchTag_Update(NULL); // Update touch
-	if (ec->AnimationChannelsSetup)
-		ec->AnimationChannelsActive = EVE_Hal_rd32(phost, REG_ANIM_ACTIVE);
-	else
-		ec->AnimationChannelsActive = 0;
-	if (ec->Update)
-		ec->Update(ec->UserContext);
+	ec->HW_updated = false;
+	do {
+		ms = EVE_millis(); // Calculate frame time delta
+		ec->DeltaMs = ms - ec->Millis;
+		ec->Millis = ms;
+		Esd_GpuAlloc_Update(Esd_GAlloc); // Run GC
+		Esd_TouchTag_Update(NULL); // Update touch
+		if (ec->AnimationChannelsSetup)
+			ec->AnimationChannelsActive = EVE_Hal_rd32(phost, REG_ANIM_ACTIVE);
+		else
+			ec->AnimationChannelsActive = 0;
+		if (ec->Update)
+			ec->Update(ec->UserContext);
+		// Advance frame count
+		++ec->Frame;
 		// Esd_Timer_UpdateGlobal(); // TODO
+	} while (ec->HW_updated == false);
 
 #ifdef ESD_MEMORYPOOL_ALLOCATOR
 	eve_printf_debug_once("[Esd MemoryPool] esd update, memory usage is %d\n", Esd_MemoryPool_GetTotalUsed(Esd_MP));
@@ -393,7 +398,7 @@ ESD_CORE_EXPORT void Esd_Render(Esd_Context *ec)
 	ec->LoopState = ESD_LOOPSTATE_IDLE;
 
 	// Advance frame count
-	++ec->Frame;
+	//++ec->Frame;
 }
 
 ESD_CORE_EXPORT bool Esd_WaitSwap(Esd_Context *ec)

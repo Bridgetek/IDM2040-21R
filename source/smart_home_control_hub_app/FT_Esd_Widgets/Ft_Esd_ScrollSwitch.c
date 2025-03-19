@@ -352,6 +352,7 @@ void Ft_Esd_ScrollSwitch_PreUpdate_Widget(Ft_Esd_ScrollSwitch *context)
 	}
 
 	context->Widget.Recalculate = FT_TRUE;
+	Esd_CurrentContext->HW_updated = true;
 	context->ScrollXStart = context->ScrollX;
 	context->State |= _Shifting;
 	// printf("Ft_Esd_ScrollSwitch_PreUpdate_Widget Done %d\n", context->State);
@@ -397,6 +398,7 @@ void Ft_Esd_ScrollSwitch_Update_Widget(Ft_Esd_ScrollSwitch *context, Ft_Esd_Widg
 		}
 	}
 	context->Widget.Recalculate = FT_TRUE;
+	Esd_CurrentContext->HW_updated = true;
 	context->State &= ~(_Changing | _Loading);
 }
 

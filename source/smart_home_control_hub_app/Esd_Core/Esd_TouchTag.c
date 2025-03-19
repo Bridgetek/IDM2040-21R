@@ -120,6 +120,7 @@ ESD_CORE_EXPORT void Esd_TouchTag_Update(Esd_TouchTag *context)
 				s_TouchPosXDelta = s_TouchPos.X - prevPos.X;
 				s_TouchPosYDelta = s_TouchPos.Y - prevPos.Y;
 			}
+			Esd_CurrentContext->HW_updated = true;
 		}
 
 		// Update up and down tags
@@ -137,9 +138,15 @@ ESD_CORE_EXPORT void Esd_TouchTag_Update(Esd_TouchTag *context)
 
 		s_GpuRegTouchTag = regTouchTag;
 	}
+	if (s_TagUp != 0)
+	{
+		Esd_CurrentContext->HW_updated = true;
+	}
 
 	if (!context)
 		return;
+
+	Esd_CurrentContext->HW_updated = true;
 
 	if (s_TagHandlers[context->Tag] != context)
 	{
@@ -194,6 +201,7 @@ ESD_CORE_EXPORT void Esd_TouchTag_End(Esd_TouchTag *context)
 		}
 		context->Tag = 0;
 	}
+	Esd_CurrentContext->HW_updated = true;
 }
 
 ESD_CORE_EXPORT bool Esd_TouchTag_Touching(Esd_TouchTag *context)

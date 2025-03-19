@@ -69,6 +69,7 @@ void Esd_Switch_PreUpdate_Widget(Ft_Esd_SignalSwitch *context)
 	}
 
 	context->Widget.Recalculate = FT_TRUE;
+	Esd_CurrentContext->HW_updated = true;
 	// context->ScrollXStart = context->ScrollX;
 	// context->State |= _Shifting;
 }
@@ -147,6 +148,7 @@ void Esd_Switch_Update_Widget(Ft_Esd_SignalSwitch *context, Ft_Esd_Widget *newWi
 		}
 	}
 	context->Widget.Recalculate = FT_TRUE;
+	Esd_CurrentContext->HW_updated = true;
 	context->State &= ~(_Changing | _Loading);
 }
 void Esd_Switch_NextPage(Ft_Esd_SignalSwitch *context)

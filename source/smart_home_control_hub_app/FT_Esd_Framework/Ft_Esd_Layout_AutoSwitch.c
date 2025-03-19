@@ -35,6 +35,7 @@ void setNextPicture(Ft_Esd_Layout_AutoSwitch *context)
 	Ft_Esd_Widget_SetActive(old, false);
 	Ft_Esd_Widget_SetActive(current, true);
 	context->Widget.Recalculate = FT_TRUE;
+	Esd_CurrentContext->HW_updated = true;
 }
 
 void Ft_Esd_Layout_AutoSwitch_Start(Ft_Esd_Layout_AutoSwitch *context)
