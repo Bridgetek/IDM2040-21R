@@ -62,3 +62,17 @@ B_______         ______
 ```
 
 A counter parameter, 'encoder', is introduced similarly to the 'button'. In the ESD loop, the encoder status is read by comparing the current 'encoder' value with the previous cycle’s value to determine if a turn has occurred.
+
+# Enhancing ESD performance
+As per the ESD design, it runs a loop to check for updates and render the screen. Regardless of whether there are any changes or not, the render function is called in every loop cycle. This means that even if there are no screen changes requested, the render function still executes, and the screen is refreshed with the same content. This can result in resource waste, especially when display changes are infrequent, and it can also delay the detection of external change requests, such as button presses and rotary encoder inputs in this project.
+
+To address this, we introduced a new parameter called *HW_updated*, which indicates whether any changes have been requested. If a change is detected, ESD will render the screen with the updates.
+
+![image](https://github.com/user-attachments/assets/8dc37c13-df1e-44f9-a56f-4f3e2ccdf098)
+
+This flag is used in two main areas of the project:
+
+1. **ESD internal logic**: This is responsible for screen flushing due to active screen page changes. Inputs from the rotary encoder and button trigger a signal to update the main screen, and other changes, like time updates, also require a screen redraw.
+2. **External screen touch**: When the user touches the screen, EVE collects the touch data and sends it to ESD, which then redraws the screen based on the touch activity.
+
+For details on the code changes made to enhance performance, please refer to https://bridgetek.github.io/tutorials/esd_idm2040_21r/index.html
