@@ -454,6 +454,9 @@ EVE_HAL_EXPORT void EVE_Util_configDefaults(EVE_HalContext *phost, EVE_ConfigPar
 			config->VSync0 = 0;
 			config->VSync1 = 10;
 			config->PCLK = 7;
+	                config->Dither = 1;
+			config->PCLKPol = 1;
+			config->CSpread = 1;
 		}
 #endif
 	}
