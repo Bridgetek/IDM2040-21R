@@ -75,4 +75,4 @@ This flag is used in two main areas of the project:
 1. **ESD internal logic**: This is responsible for screen flushing due to active screen page changes. Inputs from the rotary encoder and button trigger a signal to update the main screen, and other changes, like time updates, also require a screen redraw.
 2. **External screen touch**: When the user touches the screen, EVE collects the touch data and sends it to ESD, which then redraws the screen based on the touch activity.
 
-For details on the code changes made to enhance performance, please refer to https://bridgetek.github.io/tutorials/esd_idm2040_21r/index.html
+For details on the code changes made to enhance performance, please refer to https://github.com/Bridgetek/IDM2040-21R/commit/cb94438e794029126e3ab87ee84cf3e2b4ad7f20
